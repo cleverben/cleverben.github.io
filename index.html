@@ -1,15 +1,43 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
-<html>
-    <head>
-        <meta charset="utf-8">
-        <link rel="shortcut icon" href="./images/icon.png">
-        <link rel="stylesheet" href="./index_css/index.css">
-        <title>index</title>
-    </head>
-    <body>
-        <h1>Hello World.</h1>
-        <p>This web in GitHub Pages.</p>
-        <p></p>
-    </body>
-</html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="./images/icon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>时钟 Clock</title>
+    <link rel="stylesheet" href="clock.css">
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+            <div class="clock">
+                <div class="hour">
+                    <div class="hr" id="hr"></div>
+                </div>
+                <div class="min">
+                    <div class="mn" id="mn"></div>
+                </div>
+                <div class="sec">
+                    <div class="sc" id="sc"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const deg = 6;
+        const hr =document.querySelector('#hr');
+        const mn =document.querySelector('#mn');
+        const sc =document.querySelector('#sc');
+
+        setInterval(() =>{
+            let day = new Date();
+            let hh = day.getHours() * 30;
+            let mm = day.getMinutes() * deg;
+            let ss = day.getSeconds() * deg;
+
+            hr.style.transform = `rotateZ(${hh+(mm/12)}deg)`;
+            mn.style.transform = `rotateZ(${(mm)}deg)`;
+            sc.style.transform = `rotateZ(${(ss)}deg)`;
+            })
+    </script>
+</bodsc
